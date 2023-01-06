@@ -1,6 +1,5 @@
 from django.urls import path,include
-
-//from usermanagement import index1
+#from usermanagement import index1
 from .views import *
 from usermanagement.views import *
 #from . import index1
