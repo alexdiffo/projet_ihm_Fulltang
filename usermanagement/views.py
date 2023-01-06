@@ -1045,3 +1045,20 @@ def dnewmedecineprescription(request):
         }   
     return render(request, 'usermanagement/dentist/dnewmedecineprescription.html', context=context)
 
+#-------------------------------------ADMIN-----------------------------------------#
+#-------------------------------------ADMIN-----------------------------------------#
+#-------------------------------------ADMIN-----------------------------------------#
+
+def admindashboard(request):
+    return render(request, 'usermanagement/admin/dashboard.html')
+
+def adduser(request):
+    return render(request, 'usermanagement/admin/ajouter-utilisateur.html')
+
+def viewuser(request):
+    return render(request, 'usermanagement/admin/information-medecin.html')
+
+def setprofile(request):
+    return render(request, 'usermanagement/admin/modifier-profil.html')
+
+

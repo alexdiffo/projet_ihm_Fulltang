@@ -117,6 +117,21 @@ urlpatterns = [
     path('sendToGeneralist/<id>', sendToGeneralist, name='sendToGeneralist'),
     path('sendToGeneralistValidation/<id>', sendToGeneralistValidation, name='sendToGeneralistValidation'),
 
+    
+#------------------------------------ADMIN-----------------------------------------------#
+#------------------------------------ADMIN-----------------------------------------------#
+#------------------------------------ADMIN-----------------------------------------------#
+#------------------------------------ADMIN-----------------------------------------------#
+    path('administration/', admindashboard, name='admin'),
+    path('administration/information-medecin.html', viewuser, name='information-medecin'),
+    path('administration/ajouter-utilisateur.html', adduser, name='ajouter-utilisateur'),
+    path('administration/modifier-profil.html', setprofile, name='modifier-profil'),
+
+    
+
+
+
+
 
 
 
