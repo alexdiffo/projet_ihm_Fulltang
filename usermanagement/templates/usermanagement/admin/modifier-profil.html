@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +6,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/css/style.css' %}">
     <link rel='stylesheet' type='text/css' media='screen' href='fontawesome/css/all.min.css'>
-    <script src='js/script.js' defer></script>
+    <script src="{% static 'usermanagement/js/script.js' %}" defer></script>
 </head>
 <body>
     <div class="main">
