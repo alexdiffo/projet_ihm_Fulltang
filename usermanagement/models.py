@@ -30,6 +30,7 @@ Roles = [
     ('Ophtalmologist', 'Ophtalmologist'),
     ('Pharmacist', 'Pharmacist'),
     ('Dentist', 'Dentist'),
+    ('Cashier', 'Cashier'),
 
 ]
 
@@ -56,6 +57,19 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.username
 
+class Personel(models.Model):
+    Date = models.DateField(auto_now=True,  blank=True)
+    Time = models.TimeField(auto_now=True,  blank=True)
+    CNI_number = models.CharField(max_length=20,  blank=True, default=" ")
+    FirstName = models.CharField(max_length=50,  blank=True)
+    LastName = models.CharField(max_length=50,  blank=True, default=" ")
+    gender = models.CharField(
+    max_length=50, choices=SEXE, default='Male',  blank=True)
+    Phone_number = models.CharField(max_length=100,  blank=True, default=" ")
+    BirthDate = models.DateField(blank=True, null=True, default="0000-00-00")
+    Address = models.CharField(max_length=25,  blank=True, default=" ")
+    Email_address = models.CharField(max_length=25, blank=True, default=" ")
+    Role = models.CharField(max_length=50, blank=False, null=False, choices=Roles)
 
 class Patient(models.Model):
     Date = models.DateField(auto_now=True,  blank=True)

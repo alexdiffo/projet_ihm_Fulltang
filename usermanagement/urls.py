@@ -1,5 +1,4 @@
 from django.urls import path,include
-
 #from usermanagement import index1
 from .views import *
 from usermanagement.views import *
@@ -117,27 +116,16 @@ urlpatterns = [
     path('sendToGeneralist/<id>', sendToGeneralist, name='sendToGeneralist'),
     path('sendToGeneralistValidation/<id>', sendToGeneralistValidation, name='sendToGeneralistValidation'),
 
-    
+
+
+
 #------------------------------------ADMIN-----------------------------------------------#
 #------------------------------------ADMIN-----------------------------------------------#
 #------------------------------------ADMIN-----------------------------------------------#
 #------------------------------------ADMIN-----------------------------------------------#
-    path('administration/', admindashboard, name='admin'),
-    path('administration/information-medecin.html', viewuser, name='information-medecin'),
-    path('administration/ajouter-utilisateur.html', adduser, name='ajouter-utilisateur'),
-    path('administration/modifier-profil.html', setprofile, name='modifier-profil'),
 
-    
-
-
-
-
-
-
-
-
-
-
+    path('viewDoctorlist/', viewDoctorlist, name='viewDoctorlist'),
+    path('addPersonel/', addPersonel, name='addPersonel'),
 
 
 

@@ -4,13 +4,13 @@ from django.shortcuts import redirect, render
 from django.views.generic.edit import UpdateView, DeleteView
 from flask import render_template
 from usermanagement.models import Consultation, Drog, Examen, Medicament, Patient, Exam
-from .formulaire import  MedicineForm, PatientForm, ConsultationForm, ExamForm
+from .formulaire import  MedicineForm, PatientForm, ConsultationForm, ExamForm, PersonelForm
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 import datetime
 from datetime import datetime
 from django.core.paginator import Paginator
-from usermanagement.models import Patient
+from usermanagement.models import Patient, Personel
 from django.core.mail import send_mail
 
 # Create your views here.
@@ -101,7 +101,82 @@ def addPatient(request):
     return render(request, 'usermanagement/receptionist/addPatient.html', context=context)
     #objet formulaire sous forme d'un dictionnaire:{'form':form}
     
-    
+ ### HERE ARE THE ADMIN FUNCTIONS  ####
+
+def addPersonel(request):
+    if request.method == "POST":
+        p = Personel()
+        p.FirstName = request.POST['FirstName']
+        p.LastName = request.POST['LastName']
+        p.Phone_number = request.POST['Phone_number']
+        p.BirthDate = request.POST['BirthDate']
+        p.Address = request.POST['Address']
+        p.Email_address = request.POST['Email_address']
+        p.gender = request.POST['sexe']
+        p.Role = request.POST['Role']
+        p.save()
+        print('-----------------------------------------------------------')
+        print('-----------------------------------------------------------')
+        print('-----------------------------------------------------------')
+
+        if p.Role == 'Doctor':
+            return viewDoctorlist(request) #redirect('/addPatient')
+        elif p.Role == 'Receptionist':
+            return viewReceptionistlist(request) #redirect('/addPatient')
+        elif p.Role == 'Pharmacist':
+            return viewPharmacistlist(request) #redirect('/addPatient')
+        elif p.Role == 'Labtech':
+            return viewLabtechlist(request) #redirect('/addPatient')
+        elif p.Role == 'Specialist':
+            return viewSpecialistlist(request) #redirect('/addPatient')
+        elif p.Role == 'Cashier':
+            return viewCashierlist(request) #redirect('/addPatient') 
+    else:   
+        form = PersonelForm()
+        context={
+            'current_date': datetime.now().date().__str__(),
+            'form':form
+        }
+    return render(request, 'usermanagement/admin/addPersonel.html', context=context)
+
+def viewDoctorlist(request):
+    name = ''
+    if request.method == 'POST':
+        if 'name' in request.POST:
+            name = request.POST['name']
+        doctors = Personel.objects.filter(FirstName__contains=name, Role='doctor').order_by("Date")[::-1]
+        paginator = Paginator(doctors, 5)
+        page = request.GET.get('page')
+        doctors = paginator.get_page(page)
+        doctorList = []
+        doctorList2 = []
+        for p in doctors:
+            if not [p.FirstName,p.LastName,p.CNI_number] in doctorList:
+                doctorList2.append(p)
+                doctorList.append([p.FirstName,p.LastName,p.CNI_number])
+                
+        context = {
+            'doctorList':doctorList,
+            'doctors': doctors,
+            'selectName':name,
+            
+            }
+        return render(request, 'usermanagement/receptionist/viewDoctorlist.html', context)
+    doctors = Patient.objects.all().order_by("Date")[::-1]
+    paginator = Paginator(doctors, 5)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+    doctorList = []
+    for p in doctors:
+        if not [p.FirstName,p.LastName,p.CNI_number] in doctorList:
+            doctorList.append([p.FirstName,p.LastName,p.CNI_number])
+           
+    context = {
+        'doctorList':doctorList,
+        'doctors': doctors,
+        
+    }
+    return render(request, 'usermanagement/receptionist/viewDoctorlist.html', context)
 
 
 def receptionist(request):
@@ -1044,21 +1119,4 @@ def dnewmedecineprescription(request):
         'patientList':patientList,
         }   
     return render(request, 'usermanagement/dentist/dnewmedecineprescription.html', context=context)
-
-#-------------------------------------ADMIN-----------------------------------------#
-#-------------------------------------ADMIN-----------------------------------------#
-#-------------------------------------ADMIN-----------------------------------------#
-
-def admindashboard(request):
-    return render(request, 'usermanagement/admin/dashboard.html')
-
-def adduser(request):
-    return render(request, 'usermanagement/admin/ajouter-utilisateur.html')
-
-def viewuser(request):
-    return render(request, 'usermanagement/admin/information-medecin.html')
-
-def setprofile(request):
-    return render(request, 'usermanagement/admin/modifier-profil.html')
-
 

@@ -2,7 +2,7 @@
 #import de la classe model form qui va creer le formulaire
 from django.forms import ModelForm, fields
 #import du model Patient. le formulaire va etre creer a partir du modele patient
-from .models import Consultation, Examen, Medicament, Patient
+from .models import Consultation, Examen, Medicament, Patient, Personel
 #je creer un classe qui va heriter de la classe modelForm, et c'est elle qui va creer le formulaire d'insertion des does
 from django import forms
 class DateInput(forms.DateInput):
@@ -12,6 +12,15 @@ class PatientForm(ModelForm):
     class Meta:
         model= Patient
         fields = ['FirstName', 'LastName', 'gender', 'BirthDate', 'Address','CNI_number','Phone_number', 'Email_address', 'condition', 'Service', 'ConsultationCost']
+
+        widgets={
+            'BirthDate': DateInput(),
+        }
+
+class PersonelForm(ModelForm):
+    class Meta:
+        model= Personel
+        fields = ['FirstName', 'LastName', 'gender', 'BirthDate', 'Address','CNI_number','Phone_number', 'Email_address', 'Role']
 
         widgets={
             'BirthDate': DateInput(),

@@ -1,0 +1,20 @@
+<html>
+    <head></head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="FirstName" maxlength="50" style="margin-bottom: 5vh;" required="" id="id_FirstName">
+            <input type="text" name="LastName" maxlength="50" style="margin-bottom: 5vh;" required="" id="id_LastName">
+            <input type="date" name="BirthDate" id="id_BirthDate" max="{{current_date}}" style="width: 11.68vw; height: 4.5vh; margin-bottom: 5vh;">
+            <input type="text" name="Email_address" maxlength="25"  style="margin-bottom: 5vh;"  id="id_Email_address">
+            <input type="text" name="Phone_number" maxlength="25"  style="margin-bottom: 5vh;"  id="id_Phone_number">
+            <input type="text" name="Address" maxlength="25"  style="margin-bottom: 5vh;"  id="id_Address">		
+            <input type="select">
+                <label>Roles</label>
+                <option value="Doctor">Doctor</option>
+                <option value="Receptionist">Receptionist</option>
+                <option value="Cashier">Cashier</option>
+            </input>
+        </form>
+    </body>
+</html>
