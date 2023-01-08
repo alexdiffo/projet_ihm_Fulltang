@@ -137,32 +137,96 @@ def addPersonel(request):
             'current_date': datetime.now().date().__str__(),
             'form':form
         }
+        
     return render(request, 'usermanagement/admin/addPersonel.html', context=context)
 
+def viewReceptionistlist(request):
+    receptionists = Personel.objects.filter(Role='Receptionist').order_by("Date")[::-1]
+    paginator = Paginator(receptionists, 5)
+    page = request.GET.get('page')
+    receptionists = paginator.get_page(page)
+    receptionistList = []
+    for p in receptionists:
+        if not [p.FirstName,p.LastName,p.CNI_number] in receptionistList:
+            receptionistList.append([p.FirstName,p.LastName,p.CNI_number])
+           
+    context = {
+        'receptionistList':receptionistList,
+        'receptionists': receptionists,
+        
+    }
+    return render(request, 'usermanagement/admin/viewReceptionistlist.html', context)
+
+def viewPharmacistlist(request):
+    pharmacists = Personel.objects.filter(Role='Pharmacist').order_by("Date")[::-1]
+    paginator = Paginator(pharmacists, 5)
+    page = request.GET.get('page')
+    pharmacists = paginator.get_page(page)
+    pharmacistList = []
+    for p in pharmacists:
+        if not [p.FirstName,p.LastName,p.CNI_number] in pharmacistList:
+            pharmacistList.append([p.FirstName,p.LastName,p.CNI_number])
+           
+    context = {
+        'pharmacistList':pharmacistList,
+        'pharmacists': pharmacists,
+        
+    }
+    return render(request, 'usermanagement/admin/viewPharmacistlist.html', context)
+
+def viewLabtechlist(request):
+    labtechs = Personel.objects.filter(Role='Labtech').order_by("Date")[::-1]
+    paginator = Paginator(labtechs, 5)
+    page = request.GET.get('page')
+    labtechs = paginator.get_page(page)
+    labtechList = []
+    for p in labtechs:
+        if not [p.FirstName,p.LastName,p.CNI_number] in labtechList:
+            labtechList.append([p.FirstName,p.LastName,p.CNI_number])
+           
+    context = {
+        'labtechList':labtechList,
+        'labtechs': labtechs,
+        
+    }
+    return render(request, 'usermanagement/admin/viewLabtechlist.html', context)
+
+def viewCashierlist(request):
+    cashiers = Personel.objects.filter(Role='Cashier').order_by("Date")[::-1]
+    paginator = Paginator(cashiers, 5)
+    page = request.GET.get('page')
+    cashiers = paginator.get_page(page)
+    cashierList = []
+    for p in cashiers:
+        if not [p.FirstName,p.LastName,p.CNI_number] in cashierList:
+            cashierList.append([p.FirstName,p.LastName,p.CNI_number])
+           
+    context = {
+        'cashierList':cashierList,
+        'cashiers': cashiers,
+        
+    }
+    return render(request, 'usermanagement/admin/viewCashierlist.html', context)
+
+def viewSpecialistlist(request):
+    specialists = Personel.objects.filter(Role='Specialist').order_by("Date")[::-1]
+    paginator = Paginator(specialists, 5)
+    page = request.GET.get('page')
+    specialists = paginator.get_page(page)
+    specialistList = []
+    for p in specialists:
+        if not [p.FirstName,p.LastName,p.CNI_number] in specialistList:
+            specialistList.append([p.FirstName,p.LastName,p.CNI_number])
+           
+    context = {
+        'specialistList':specialistList,
+        'specialists': specialists,
+        
+    }
+    return render(request, 'usermanagement/admin/viewSpecialistlist.html', context)
+
 def viewDoctorlist(request):
-    name = ''
-    if request.method == 'POST':
-        if 'name' in request.POST:
-            name = request.POST['name']
-        doctors = Personel.objects.filter(FirstName__contains=name, Role='doctor').order_by("Date")[::-1]
-        paginator = Paginator(doctors, 5)
-        page = request.GET.get('page')
-        doctors = paginator.get_page(page)
-        doctorList = []
-        doctorList2 = []
-        for p in doctors:
-            if not [p.FirstName,p.LastName,p.CNI_number] in doctorList:
-                doctorList2.append(p)
-                doctorList.append([p.FirstName,p.LastName,p.CNI_number])
-                
-        context = {
-            'doctorList':doctorList,
-            'doctors': doctors,
-            'selectName':name,
-            
-            }
-        return render(request, 'usermanagement/receptionist/viewDoctorlist.html', context)
-    doctors = Patient.objects.all().order_by("Date")[::-1]
+    doctors = Personel.objects.filter(Role='Doctor').order_by("Date")[::-1]
     paginator = Paginator(doctors, 5)
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
@@ -176,8 +240,41 @@ def viewDoctorlist(request):
         'doctors': doctors,
         
     }
-    return render(request, 'usermanagement/receptionist/viewDoctorlist.html', context)
+    return render(request, 'usermanagement/admin/viewDoctorlist.html', context)
 
+def PersonelUpdateView(request,pk):
+    if request.method=='POST':
+        personel= Personel.objects.filter(id__iexact=pk)[0]
+        form= PersonelForm(request.POST)
+        if form.is_valid():
+            personel.FirstName= form.cleaned_data['FirstName']
+            personel.LastName= form.cleaned_data['LastName']
+            personel.gender= form.cleaned_data['gender']
+            personel.BirthDate= form.cleaned_data['BirthDate']
+            personel.Address= form.cleaned_data['Address']
+            personel.CNI_number= form.cleaned_data['CNI_number']
+            personel.Phone_number= form.cleaned_data['Phone_number']
+            personel.Email_address= form.cleaned_data['Email_address']
+            personel.save()
+    return render(request, 'usermanagement/admin/personel_update_form.html')
+
+class PersonelDeleteView(DeleteView):
+    model = Personel
+    role = model.Role
+    if role == 'Doctor':
+        success_url = reverse_lazy('usermanagement:viewDoctorlist')
+    elif role == 'Receptionist':
+        success_url = reverse_lazy('usermanagement:viewReceptionistlist')
+    elif role == 'Pharmacist':
+        success_url = reverse_lazy('usermanagement:viewPharmacistlist')
+    elif role == 'Labtech':
+        success_url = reverse_lazy('usermanagement:viewLabtechlist')
+    elif role == 'Cashier':
+        success_url = reverse_lazy('usermanagement:viewCashierlist')
+    elif role == 'Specialist':
+        success_url = reverse_lazy('usermanagement:viewSpecialistlist')
+
+### ADMIN FUNCTIONS ENDS HERE ###
 
 def receptionist(request):
     return render(request, 'usermanagement/receptionist/receptionist.html')
@@ -306,8 +403,6 @@ def sendToSpecialist(request, id):
         "p":p
     }
     return render(request, 'usermanagement/doctor/sendToSpecialist.html', context=context)
-
-
 
 
 def doctorviewpl(request):
@@ -543,8 +638,6 @@ def newexamprescription2(request,id):
         'exams':exams,
         }
     return render(request,'usermanagement/doctor/newexamprescription2.html',context=context)
-
-
 
 
 

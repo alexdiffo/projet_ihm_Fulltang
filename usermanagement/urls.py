@@ -124,9 +124,14 @@ urlpatterns = [
 #------------------------------------ADMIN-----------------------------------------------#
 #------------------------------------ADMIN-----------------------------------------------#
 
-    path('viewDoctorlist/', viewDoctorlist, name='viewDoctorlist'),
     path('addPersonel/', addPersonel, name='addPersonel'),
-
-
+    path('viewDoctorlist/', viewDoctorlist, name='viewDoctorlist'),
+    path('viewReceptionistlist/', viewReceptionistlist, name='viewReceptionistlist'),
+    path('viewPharmacistlist/', viewPharmacistlist, name='viewPharmacistlist'),
+    path('viewLabtechlist/', viewLabtechlist, name='viewLabtechlist'),
+    path('viewCashierlist/', viewCashierlist, name='viewCashierlist'),
+    path('viewSpecialistlist/', viewSpecialistlist, name='viewSpecialistlist'),
+    path('personel_update/<int:pk>/', PersonelUpdateView, name = 'personel_update'),
+    path('personel_confirm_delete/<int:pk>/', PersonelDeleteView.as_view(), name = 'personel_confirm_delete'),
 
 ]
