@@ -7,84 +7,14 @@
     <title>dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/css/style.css' %}">
-    <link rel='stylesheet' type='text/css' media='screen' href='fontawesome/css/all.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/fontawesome/css/all.min.css' %}">
     <script src="{% static 'usermanagement/js/script.js' %}" defer></script>
 </head>
 <body>
     <div class="main">
-        <div class="left-container">
-            <div class="left-bar">
-                <div class="presentation">
-                    <div class="entete">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <p class="app-name">Polyclinic Fultang</p>
-                    </div>
-                    
-                    <div class="about">
-                        <div class="welcome-image">
-                            <div>
-                            </div>
-                        </div>
-                        <div class="grade">
-                            <p>welcome</p>
-                            <p>Adiministrator</p>
-                            <div class="outside">
-                                <a>Signout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="navigation">
-                    <div class="nav-title">
-                        <p>MAIN NAVIGATION</p>
-                    </div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="ajouter-utilisateur.html">Ajouter un utilisateur</a>
-                            </li>
-                            <li class="section">
-                                <a>Gestion des utilisateurs</a>
-                                <ul>
-                                    <li><a>Docteur</a></li>
-                                    <li><a>Pharmacien</a></li>
-                                    <li><a>Patient</a></li>
-                                </ul>
-                            </li>
-                            <li class="section">
-                                <a>statistiques</a>
-                                <ul>
-                                    <li><a>Docteur</a></li>
-                                    <li><a>Pharmacien</a></li>
-                                    <li><a>Patient</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-        </div>
+        {% include 'usermanagement/admin/navbar.html'%}
         <div class="right-container">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <p class="title">Polyclinic Fultang</p>
-                </div>
-                <div class="search">
-                    <form>
-                        <input type="search" placeholder="search">
-                        <button type="submit"></button>
-                    </form>
-                    
-                </div>
-                <div class="profil">
-                    <p>Daren NDIZE</p>
-                    <div class="profil-image">
-                    </div>
-                </div>
-            </header>
+            {% include 'usermanagement/admin/header.html'%}
             <div class="content">
                 <h1>Liste des médecins</h1>
 
@@ -94,6 +24,7 @@
                         <th>ID</th>
                         <th>PRENOM</th>
                         <th>NOM</th>
+                        <th>Téléphone</th>
                         <th>E-MAIL</th>
                     </tr> 
                     </thead>
@@ -102,6 +33,7 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
                                 <div class="selected-option">
@@ -122,6 +54,7 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
@@ -139,6 +72,7 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
@@ -156,8 +90,30 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
                                 <div class="selected-option">
                                     <a href="information-medecin.html">Plus d'info</a>
                                     <a href="modifier-profil.html">Modifier profil</a>
@@ -168,19 +124,18 @@
                                     </form>
                                 </div>
                             </td>
-                            
-                                
-                            
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>Alex</td>
-                            <td>DIFFO</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
-                                diffo@gmail.com
+                                fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
                                     <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -189,31 +144,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td>Fabio</td>
-                            <td>NTSAMA</td>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
-                                fabio@gmail.com
+                                wandji@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
                                     <a href="modifier-profil.html">Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Daren</td>
-                            <td>NDIZE</td>
-                            <td>
-                                wandji@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
                                     </form>
@@ -227,11 +168,13 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -243,11 +186,13 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -259,12 +204,14 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
                                     </form>
@@ -278,11 +225,13 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -294,11 +243,13 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -310,12 +261,14 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
                                     </form>
@@ -329,11 +282,13 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -345,11 +300,13 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -361,12 +318,14 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
                                     </form>
@@ -380,11 +339,13 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -396,11 +357,13 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -412,12 +375,14 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
                                     </form>
@@ -431,11 +396,13 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -447,11 +414,13 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -463,12 +432,14 @@
                             <td>1</td>
                             <td>Daren</td>
                             <td>NDIZE</td>
+                            <td>655741285</td>
                             <td>
                                 wandji@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
                                     </form>
@@ -482,11 +453,13 @@
                             <td>3</td>
                             <td>Alex</td>
                             <td>DIFFO</td>
+                            <td>655741285</td>
                             <td>
                                 diffo@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -498,11 +471,13 @@
                             <td>3</td>
                             <td>Fabio</td>
                             <td>NTSAMA</td>
+                            <td>655741285</td>
                             <td>
                                 fabio@gmail.com
                                 <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
                                     <form action="dars">
                                         <input type="hidden">
                                         <button type="submit"><a>supprimer utilisateur</a></button>
@@ -510,165 +485,18 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Daren</td>
-                            <td>NDIZE</td>
-                            <td>
-                                wandji@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                            
-                                
-                            
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Alex</td>
-                            <td>DIFFO</td>
-                            <td>
-                                diffo@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Fabio</td>
-                            <td>NTSAMA</td>
-                            <td>
-                                fabio@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Daren</td>
-                            <td>NDIZE</td>
-                            <td>
-                                wandji@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                            
-                                
-                            
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Alex</td>
-                            <td>DIFFO</td>
-                            <td>
-                                diffo@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Fabio</td>
-                            <td>NTSAMA</td>
-                            <td>
-                                fabio@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Daren</td>
-                            <td>NDIZE</td>
-                            <td>
-                                wandji@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                            
-                                
-                            
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Alex</td>
-                            <td>DIFFO</td>
-                            <td>
-                                diffo@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Fabio</td>
-                            <td>NTSAMA</td>
-                            <td>
-                                fabio@gmail.com
-                                <div class="selected-option">
-                                    <a>Plus d'info</a>
-                                    <a>Modifier profil</a>
-                                    <form action="dars">
-                                        <input type="hidden">
-                                        <button type="submit"><a>supprimer utilisateur</a></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
         </div>
          
     </div>
+    <script>
+        document.querySelector(".section ul").classList.add("height")
+        document.querySelector(".section a i:last-child").classList.add("rotate")
+        document.querySelectorAll(".section li a")[0].classList.add("active")
+    </script>
     
 </body>
 </html>

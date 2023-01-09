@@ -133,5 +133,8 @@ urlpatterns = [
     path('viewSpecialistlist/', viewSpecialistlist, name='viewSpecialistlist'),
     path('personel_update/<int:pk>/', PersonelUpdateView, name = 'personel_update'),
     path('personel_confirm_delete/<int:pk>/', PersonelDeleteView.as_view(), name = 'personel_confirm_delete'),
-
+    path('administration/', admindashboard, name='admin'),
+    path('administration/information-medecin.html', viewuser, name='information-medecin'),
+    path('administration/ajouter-utilisateur.html', adduser, name='ajouter-utilisateur'),
+    path('administration/modifier-profil.html', setprofile, name='modifier-profil'),
 ]

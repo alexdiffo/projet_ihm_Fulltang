@@ -1,0 +1,501 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>dashboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/css/style.css' %}">
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/fontawesome/css/all.min.css' %}">
+    <script src="{% static 'usermanagement/js/script.js' %}" defer></script>
+</head>
+<body>
+    <div class="main">
+        {% include 'usermanagement/admin/navbar.html'%}
+        <div class="right-container">
+            {% include 'usermanagement/admin/header.html'%}
+            <div class="content">
+                <h1>Liste des réceptionistes</h1>
+
+                <table>
+                    <thead>
+                       <tr>
+                        <th>ID</th>
+                        <th>PRENOM</th>
+                        <th>NOM</th>
+                        <th>Téléphone</th>
+                        <th>E-MAIL</th>
+                    </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Daren</td>
+                            <td>NDIZE</td>
+                            <td>655741285</td>
+                            <td>
+                                wandji@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dashboard.html">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                                
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>DIFFO</td>
+                            <td>655741285</td>
+                            <td>
+                                diffo@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fabio</td>
+                            <td>NTSAMA</td>
+                            <td>655741285</td>
+                            <td>
+                                fabio@gmail.com
+                                <div class="selected-option">
+                                    <a href="information-medecin.html">Plus d'info</a>
+                                    <a href="modifier-profil.html">Modifier profil</a>
+                                    <a>Suspendre utilisateur</a>
+                                    <form action="dars">
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         
+    </div>
+    <script>
+        document.querySelector(".section ul").classList.add("height")
+        document.querySelector(".section a i:last-child").classList.add("rotate")
+        document.querySelectorAll(".section li a")[3].classList.add("active")
+    </script>
+</body>
+</html>
