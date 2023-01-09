@@ -103,6 +103,9 @@ def addPatient(request):
     
  ### HERE ARE THE ADMIN FUNCTIONS  ####
 
+def adminDashboard(request):
+    return render(request, "usermanagement/admin/dashboard.html")
+
 def addPersonel(request):
     if request.method == "POST":
         p = Personel()

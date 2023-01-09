@@ -124,6 +124,7 @@ urlpatterns = [
 #------------------------------------ADMIN-----------------------------------------------#
 #------------------------------------ADMIN-----------------------------------------------#
 
+    path('adminDashboard/', adminDashboard, name='adminDashboard'),
     path('addPersonel/', addPersonel, name='addPersonel'),
     path('viewDoctorlist/', viewDoctorlist, name='viewDoctorlist'),
     path('viewReceptionistlist/', viewReceptionistlist, name='viewReceptionistlist'),
