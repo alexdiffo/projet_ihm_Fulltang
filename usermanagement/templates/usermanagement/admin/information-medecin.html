@@ -18,48 +18,48 @@
             <div class="content">
                 <div class="profil-entete">
                     <img src="/static/usermanagement/images/avatar.jpg">
-                    <h1>ALEX DIFFO</h1>
+                    <h1>{{personel.FirstName}}{{personel.LastName}} </h1>
                 </div>
                 <div class="basic-info">
                     <div class="colonne-info">
-                        <h2>iD</h2>
-                        <p>5</p>
+                        <h2>ID</h2>
+                        <p>{{personel.id}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>PRENOM</h2>
-                        <p>Alex</p>
+                        <p>{{personel.FirstName}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>NOM</h2>
-                        <p>DIFFO</p>
+                        <p>{{personel.LastName}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>Date de naissance</h2>
-                        <p>20-05-2000</p>
+                        <p>{{personel.BirthDate}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>Sexe</h2>
-                        <p>Masculin</p>
+                        <p>{{personel.gender}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>E-MAIL</h2>
-                        <p>Alex@gmail.com</p>
+                        <p>{{personel.Email_address}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>Adresse</h2>
-                        <p>Melen</p>
+                        <p>{{personel.Address}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>N° téléphone</h2>
-                        <p>694557882</p>
+                        <p>{{personel.Phone_number}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>N° CNI</h2>
-                        <p>18184189zdd9894sd</p>
+                        <p>{{personel.CNI_number}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>Role</h2>
-                        <p>Médecin</p>
+                        <p>{{personel.Role}}</p>
                     </div>
                 </div>
                 <div class="basic-info">

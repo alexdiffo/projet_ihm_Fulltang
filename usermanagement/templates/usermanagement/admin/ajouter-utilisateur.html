@@ -18,67 +18,67 @@
         {% include 'usermanagement/admin/header.html'%}
             <div class="content">
                 <h1>Ajouter personnel</h1>
-                <form class="add">
+                <form class="add" method="post">{% csrf_token %}
                     <div class="form-row">
                         <div>
                             <label>Nom</label>
-                            <input class="focus" type="text"  required/>
+                            <input class="focus" type="text"  name="LastName" required/>
                         </div>
                         <div>
                             <label>Prénom</label>
-                            <input class="focus" type="text"  required/>
+                            <input class="focus" type="text"  name="FirstName" required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div>
                             <label>Date de naissance</label>
-                            <input class="focus" type="date" required />
+                            <input class="focus" type="date"  name="BirthDate" required />
                         </div>
                         <div>
                             <label>Sexe</label>
-                            <select class="focus" required >
-                                <option selected disabled value="" style=" color: black ; font-weight: bold"></option>
-                                <option>Masculin</option>
-                                <option>Féminin</option>
+                            <select class="focus" name="gender" required >
+                                <option selected disabled value=""  style=" color: black ; font-weight: bold"></option>
+                                <option value="Male">Masculin</option>
+                                <option value="Female">Féminin</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div>
                             <label>Email</label>
-                            <input class="focus" type="email"  required/>
+                            <input class="focus" type="email" name="Email_address"  required/>
                         </div>
                         <div>
                             <label>N° téléphone</label>
-                            <input class="focus" type="number" required/>
+                            <input class="focus" type="number" name="Phone_number"  required/>
                         </div>
                     </div>
                     <div class="form-row">
                             <div>
                                 <label>Adresse</label>
-                                <input class="focus" type="text" required/>
+                                <input class="focus" type="text" name="Address"  required/>
                             </div>
                             <div>
                                 <label>N° CNI</label>
-                                <input class="focus" type="number" required/>
+                                <input class="focus" type="number" name="CNI_number" required/>
                             </div>
                     </div>
                     <div class="form-row">
                         <div style="width: 100% ;">
                             <label>Role</label>
-                            <select class="focus" required >
+                            <select class="focus" name="Role" required >
                                 <option selected disabled value="" style=" color: black ; font-weight: bold">Choisir une catégorie</option>
-                                <option>Médecin</option>
-                                <option>Pharmacien</option>
-                                <option>Spétialiste</option>
-                                <option>Laborantin</option>
-                                <option>Réceptioniste</option>
-                                <option>Cassier</option>
+                                <option value="Doctor">Médecin</option>
+                                <option value="Pharmacist">Pharmacien</option>
+                                <option value="Specialist">Spécialiste</option>
+                                <option value="Labtech">Laborantin</option>
+                                <option value="Receptionist">Réceptioniste</option>
+                                <option value="Cashier">Cassier</option>
                                 
                             </select>
                         </div>
                     </div>
-                    <input  type="submit" value="Ajouter"/>
+                    <input  type="submit" value="Save"/>
                 </form>
             </div>
         </div>

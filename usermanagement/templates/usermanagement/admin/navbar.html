@@ -28,17 +28,17 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="ajouter-utilisateur.html"><i class="fa-solid fa-plus"></i>Ajouter du personnel</a>
+                        <a href="{% url 'usermanagement:addPersonel' %}"><i class="fa-solid fa-plus"></i>Ajouter du personnel</a>
                     </li>
                     <li class="section">
                         <a><i class="fa-regular fa-rectangle-list"></i>Gestion des utilisateurs <i class="fa-solid fa-chevron-right"></i></a>
                         <ul>
                             <li><a href="/administration" >Doctor</a></li>
-                            <li><a href="pharmacist.html">Pharmacist</a></li>
-                            <li><a href="specialist.html">Specialist</a></li>
-                            <li><a href="receptionist.html">Receptionist</a></li>
-                            <li><a href="cashier.html" >Cashier</a></li>
-                            <li><a href="labtech.html">Labtech</a></li>
+                            <li><a href="{% url 'usermanagement:viewPharmacistlist' %}">Pharmacist</a></li>
+                            <li><a href="{% url 'usermanagement:viewSpecialistlist' %}">Specialist</a></li>
+                            <li><a href="{% url 'usermanagement:viewReceptionistlist' %}">Receptionist</a></li>
+                            <li><a href="{% url 'usermanagement:viewCashierlist' %}" >Cashier</a></li>
+                            <li><a href="{% url 'usermanagement:viewLabtechlist' %}">Labtech</a></li>
                         </ul>
                     </li>
                     <li class="section">
