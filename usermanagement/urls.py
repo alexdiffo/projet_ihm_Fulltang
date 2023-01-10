@@ -78,6 +78,8 @@ urlpatterns = [
     path('factureexamen/<id>', factureexamen, name='factureexamen'),
     path('examshistory2/', examshistory2, name='examshistory2'),
     path('saveExamResult/<id>', saveExamResult, name='saveExamResult'),
+    path('new/', new, name='new'),
+
 
 
 #------------------------------------CASHIER-----------------------------------------------#

@@ -750,6 +750,8 @@ def pharmacistviewpl(request):
 #---------------------------------------LAB_TECHNICIAN---------------------------------------------#
 #---------------------------------------LAB_TECHNICIAN---------------------------------------------#
 
+def new(request):
+    return render(request, 'usermanagement/labTechnician/new.html')
 
 def labtechviewpl(request):
     def ndExam(idPatient):

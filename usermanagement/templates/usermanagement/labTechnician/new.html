@@ -1,0 +1,45 @@
+{% extends 'usermanagement/labTechnician/baseLabTech.html' %}
+
+{% load static %}
+{% block content %}
+<br> <br>
+    <span style="text-decoration: solid;">Enter result...</span> 
+
+
+<div class="div-name">
+    <h1>Edit result</h1>
+</div>
+
+    <div style= "padding: 1%; margin-top: 5vh; margin-left: 5vh;">
+
+        <div style="display: flex;">
+            <div style="width: 20%;">Patient_Name</div>
+            <div style="width: 20%;"><h6>Patient_Exams</h6></div>
+            <div style="width: 20%;"><h6>Exam_cost</h6></div>
+            <div style="width:40% ;"><h6>Results</h6></div>
+        </div>
+        <form method="post" action="">
+            <hr>
+            <div>
+                <div style="display: flex; width: 100%">
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        
+                        <div style="display: flex; width:100%">
+                            <div style="width: 20%;"><li> diffo alex</li></div>
+                            <div style="width: 20%;"><li> dcvdv</li></div>
+                            <div style="width: 20%;"><li> 20</li></div>
+                            <div style="width: 40%;">
+                                <textarea style="resize: none; width: 70%; height: 70px;"></textarea>
+                            </div>                                 
+                            
+                        </div>
+                            
+                    </div>
+                </div>
+                <hr>
+            </div>
+           
+            <input class="soumettre"   type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}
