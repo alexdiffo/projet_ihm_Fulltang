@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>dashboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/css/style.css' %}">
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/fontawesome/css/all.min.css' %}">
+    <script src="{% static 'usermanagement/js/script.js' %}" defer></script>
+</head>
+<body>
+    <div class="main">
+        {% include 'usermanagement/admin/navbar.html'%}
+        <div class="right-container">
+            {% include 'usermanagement/admin/header.html'%}
+            <div class="content">
+                <h1>Liste des caissiers</h1>
+
+                <table>
+                    <thead>
+                       <tr>
+                        <th>ID</th>
+                        <th>PRENOM</th>
+                        <th>NOM</th>
+                        <th>Téléphone</th>
+                        <th>E-MAIL</th>
+                    </tr> 
+                    </thead>
+                    <tbody>
+                        {% for id,prenom,nom,tel,mail in cashierList %}
+                            {% for p in cashiers %}
+                                {% if p.id == id %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.FirstName}}</td>
+                            <td>{{p.LastName}}</td>
+                            <td>{{p.Phone_number}}</td>
+                            <td>
+                                {{p.Email_address}}
+                                <div class="selected-option">
+                                    <a href="{% url 'usermanagement:viewPersonel' p.id %}">Plus d'info</a>
+                                    <a href="{% url 'usermanagement:personel_update' p.id %}">Modifier profil</a>
+                                    <form action="">{% csrf_token %}
+                                        <input type="hidden">
+                                        <button type="submit"><a>supprimer utilisateur</a></button>
+                                    </form>
+                                </div>
+                            </td>                               
+                        </tr> 
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         
+    </div>
+    <script>
+        document.querySelector(".section ul").classList.add("height")
+        document.querySelector(".section a i:last-child").classList.add("rotate")
+        document.querySelectorAll(".section li a")[4].classList.add("active")
+    </script>
+    
+</body>
+</html>

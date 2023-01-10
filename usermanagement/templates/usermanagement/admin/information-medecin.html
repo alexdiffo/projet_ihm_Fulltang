@@ -7,105 +7,59 @@
     <title>dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/css/style.css' %}">
-    <link rel='stylesheet' type='text/css' media='screen' href='fontawesome/css/all.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'usermanagement/fontawesome/css/all.min.css' %}">
     <script src="{% static 'usermanagement/js/script.js' %}" defer></script>
 </head>
 <body>
     <div class="main">
-        <div class="left-container">
-            <div class="left-bar">
-                <div class="presentation">
-                    <div class="entete">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <p class="app-name">Polyclinic Fultang</p>
-                    </div>
-                    
-                    <div class="about">
-                        <div class="welcome-image">
-                            <div>
-                            </div>
-                        </div>
-                        <div class="grade">
-                            <p>welcome</p>
-                            <p>Adiministrator</p>
-                            <div class="outside">
-                                <a>Signout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="navigation">
-                    <div class="nav-title">
-                        <p>MAIN NAVIGATION</p>
-                    </div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="ajouter-utilisateur.html">Ajouter un utilisateur</a>
-                            </li>
-                            <li class="section">
-                                <a>Gestion des utilisateurs</a>
-                                <ul>
-                                    <li><a>Docteur</a></li>
-                                    <li><a>Pharmacien</a></li>
-                                    <li><a>Patient</a></li>
-                                </ul>
-                            </li>
-                            <li class="section">
-                                <a>statiques</a>
-                                <ul>
-                                    <li><a>Docteur</a></li>
-                                    <li><a>Pharmacien</a></li>
-                                    <li><a>Patient</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-        </div>
+        {% include 'usermanagement/admin/navbar.html'%}
         <div class="right-container">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <p class="title">Polyclinic Fultang</p>
-                </div>
-                <div class="search">
-                    <form>
-                        <input type="search" placeholder="search">
-                        <button type="submit"></button>
-                    </form>
-                    
-                </div>
-                <div class="profil">
-                    <p>Daren NDIZE</p>
-                    <div class="profil-image">
-                    </div>
-                </div>
-            </header>
+            {% include 'usermanagement/admin/header.html'%}
             <div class="content">
                 <div class="profil-entete">
-                    <img src="image/avatar.jpg">
-                    <h1>ALEX DIFFO</h1>
+                    <img src="/static/usermanagement/images/avatar.jpg">
+                    <h1>{{personel.FirstName}}{{personel.LastName}} </h1>
                 </div>
                 <div class="basic-info">
                     <div class="colonne-info">
-                        <h2>iD</h2>
-                        <p>5</p>
+                        <h2>ID</h2>
+                        <p>{{personel.id}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>PRENOM</h2>
-                        <p>Alex</p>
+                        <p>{{personel.FirstName}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>NOM</h2>
-                        <p>DIFFO</p>
+                        <p>{{personel.LastName}}</p>
+                    </div>
+                    <div class="colonne-info">
+                        <h2>Date de naissance</h2>
+                        <p>{{personel.BirthDate}}</p>
+                    </div>
+                    <div class="colonne-info">
+                        <h2>Sexe</h2>
+                        <p>{{personel.gender}}</p>
                     </div>
                     <div class="colonne-info">
                         <h2>E-MAIL</h2>
-                        <p>Alex@gmail.com</p>
+                        <p>{{personel.Email_address}}</p>
+                    </div>
+                    <div class="colonne-info">
+                        <h2>Adresse</h2>
+                        <p>{{personel.Address}}</p>
+                    </div>
+                    <div class="colonne-info">
+                        <h2>N° téléphone</h2>
+                        <p>{{personel.Phone_number}}</p>
+                    </div>
+                    <div class="colonne-info">
+                        <h2>N° CNI</h2>
+                        <p>{{personel.CNI_number}}</p>
+                    </div>
+                    <div class="colonne-info">
+                        <h2>Role</h2>
+                        <p>{{personel.Role}}</p>
                     </div>
                 </div>
                 <div class="basic-info">

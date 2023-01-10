@@ -6,7 +6,7 @@ from flask import render_template
 from usermanagement.models import Consultation, Drog, Examen, Medicament, Patient, Exam
 from .formulaire import  MedicineForm, PatientForm, ConsultationForm, ExamForm, PersonelForm
 from django.urls import reverse_lazy
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 import datetime
 from datetime import datetime
 from django.core.paginator import Paginator
@@ -103,8 +103,12 @@ def addPatient(request):
     
  ### HERE ARE THE ADMIN FUNCTIONS  ####
 
-def adminDashboard(request):
-    return render(request, "usermanagement/admin/dashboard.html")
+def viewPersonel(request, pk):
+    p = Personel.objects.filter(id=pk)[0]
+    context = {
+        'personel': p,
+    }
+    return render(request, 'usermanagement/admin/information-medecin.html', context)
 
 def addPersonel(request):
     if request.method == "POST":
@@ -115,7 +119,7 @@ def addPersonel(request):
         p.BirthDate = request.POST['BirthDate']
         p.Address = request.POST['Address']
         p.Email_address = request.POST['Email_address']
-        p.gender = request.POST['sexe']
+        p.gender = request.POST['gender']
         p.Role = request.POST['Role']
         p.save()
         print('-----------------------------------------------------------')
@@ -141,7 +145,7 @@ def addPersonel(request):
             'form':form
         }
         
-    return render(request, 'usermanagement/admin/addPersonel.html', context=context)
+    return render(request, 'usermanagement/admin/ajouter-utilisateur.html', context=context)
 
 def viewReceptionistlist(request):
     receptionists = Personel.objects.filter(Role='Receptionist').order_by("Date")[::-1]
@@ -150,15 +154,15 @@ def viewReceptionistlist(request):
     receptionists = paginator.get_page(page)
     receptionistList = []
     for p in receptionists:
-        if not [p.FirstName,p.LastName,p.CNI_number] in receptionistList:
-            receptionistList.append([p.FirstName,p.LastName,p.CNI_number])
+        if not [p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address] in receptionistList:
+            receptionistList.append([p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address])
            
     context = {
         'receptionistList':receptionistList,
         'receptionists': receptionists,
         
     }
-    return render(request, 'usermanagement/admin/viewReceptionistlist.html', context)
+    return render(request, 'usermanagement/admin/receptionist.html', context)
 
 def viewPharmacistlist(request):
     pharmacists = Personel.objects.filter(Role='Pharmacist').order_by("Date")[::-1]
@@ -167,15 +171,15 @@ def viewPharmacistlist(request):
     pharmacists = paginator.get_page(page)
     pharmacistList = []
     for p in pharmacists:
-        if not [p.FirstName,p.LastName,p.CNI_number] in pharmacistList:
-            pharmacistList.append([p.FirstName,p.LastName,p.CNI_number])
+        if not [p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address] in pharmacistList:
+            pharmacistList.append([p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address])
            
     context = {
         'pharmacistList':pharmacistList,
         'pharmacists': pharmacists,
         
     }
-    return render(request, 'usermanagement/admin/viewPharmacistlist.html', context)
+    return render(request, 'usermanagement/admin/pharmacist.html', context)
 
 def viewLabtechlist(request):
     labtechs = Personel.objects.filter(Role='Labtech').order_by("Date")[::-1]
@@ -184,15 +188,15 @@ def viewLabtechlist(request):
     labtechs = paginator.get_page(page)
     labtechList = []
     for p in labtechs:
-        if not [p.FirstName,p.LastName,p.CNI_number] in labtechList:
-            labtechList.append([p.FirstName,p.LastName,p.CNI_number])
+        if not [p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address] in labtechList:
+            labtechList.append([p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address])
            
     context = {
         'labtechList':labtechList,
         'labtechs': labtechs,
         
     }
-    return render(request, 'usermanagement/admin/viewLabtechlist.html', context)
+    return render(request, 'usermanagement/admin/labtech.html', context)
 
 def viewCashierlist(request):
     cashiers = Personel.objects.filter(Role='Cashier').order_by("Date")[::-1]
@@ -201,15 +205,15 @@ def viewCashierlist(request):
     cashiers = paginator.get_page(page)
     cashierList = []
     for p in cashiers:
-        if not [p.FirstName,p.LastName,p.CNI_number] in cashierList:
-            cashierList.append([p.FirstName,p.LastName,p.CNI_number])
+        if not [p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address] in cashierList:
+            cashierList.append([p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address])
            
     context = {
         'cashierList':cashierList,
         'cashiers': cashiers,
         
     }
-    return render(request, 'usermanagement/admin/viewCashierlist.html', context)
+    return render(request, 'usermanagement/admin/cashier.html', context)
 
 def viewSpecialistlist(request):
     specialists = Personel.objects.filter(Role='Specialist').order_by("Date")[::-1]
@@ -218,15 +222,15 @@ def viewSpecialistlist(request):
     specialists = paginator.get_page(page)
     specialistList = []
     for p in specialists:
-        if not [p.FirstName,p.LastName,p.CNI_number] in specialistList:
-            specialistList.append([p.FirstName,p.LastName,p.CNI_number])
+        if not [p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address] in specialistList:
+            specialistList.append([p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address])
            
     context = {
         'specialistList':specialistList,
         'specialists': specialists,
         
     }
-    return render(request, 'usermanagement/admin/viewSpecialistlist.html', context)
+    return render(request, 'usermanagement/admin/specialist.html', context)
 
 def viewDoctorlist(request):
     doctors = Personel.objects.filter(Role='Doctor').order_by("Date")[::-1]
@@ -235,17 +239,19 @@ def viewDoctorlist(request):
     doctors = paginator.get_page(page)
     doctorList = []
     for p in doctors:
-        if not [p.FirstName,p.LastName,p.CNI_number] in doctorList:
-            doctorList.append([p.FirstName,p.LastName,p.CNI_number])
+        if not [p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address] in doctorList:
+            doctorList.append([p.id,p.FirstName,p.LastName,p.Phone_number,p.Email_address])
            
     context = {
         'doctorList':doctorList,
         'doctors': doctors,
         
     }
-    return render(request, 'usermanagement/admin/viewDoctorlist.html', context)
+    #return render(request, 'usermanagement/admin/viewDoctorlist.html', context)
+    return render(request, 'usermanagement/admin/dashboard.html', context)
 
 def PersonelUpdateView(request,pk):
+    p = Personel.objects.filter(id__iexact=pk)[0]
     if request.method=='POST':
         personel= Personel.objects.filter(id__iexact=pk)[0]
         form= PersonelForm(request.POST)
@@ -259,11 +265,31 @@ def PersonelUpdateView(request,pk):
             personel.Phone_number= form.cleaned_data['Phone_number']
             personel.Email_address= form.cleaned_data['Email_address']
             personel.save()
-    return render(request, 'usermanagement/admin/personel_update_form.html')
+        if p.Role == 'Doctor':
+            return viewDoctorlist(request) #redirect('/addPatient')
+        elif p.Role == 'Receptionist':
+            return viewReceptionistlist(request) #redirect('/addPatient')
+        elif p.Role == 'Pharmacist':
+            return viewPharmacistlist(request) #redirect('/addPatient')
+        elif p.Role == 'Labtech':
+            return viewLabtechlist(request) #redirect('/addPatient')
+        elif p.Role == 'Specialist':
+            return viewSpecialistlist(request) #redirect('/addPatient')
+        elif p.Role == 'Cashier':
+            return viewCashierlist(request) #redirect('/addPatient')
+    context = {
+        'personel' : p,
+    }
+    HttpResponseRedirect("/viewDoctorlist")
+    return render(request, 'usermanagement/admin/personel_update_form.html', context)
 
 class PersonelDeleteView(DeleteView):
     model = Personel
-    role = model.Role
+    
+    def get_success_url(self) -> str:
+        return super().get_success_url()
+    success_url = reverse_lazy('usermanagement:viewDoctorlist')
+    """
     if role == 'Doctor':
         success_url = reverse_lazy('usermanagement:viewDoctorlist')
     elif role == 'Receptionist':
@@ -275,7 +301,7 @@ class PersonelDeleteView(DeleteView):
     elif role == 'Cashier':
         success_url = reverse_lazy('usermanagement:viewCashierlist')
     elif role == 'Specialist':
-        success_url = reverse_lazy('usermanagement:viewSpecialistlist')
+        success_url = reverse_lazy('usermanagement:viewSpecialistlist')"""
 
 ### ADMIN FUNCTIONS ENDS HERE ###
 
@@ -324,7 +350,7 @@ def viewpatientlist(request):
 
 def PatientUpdateView(request,pk):
     if request.method=='POST':
-        patient= Patient.objects.filter(id__iexact=pk)[0]
+        patient= Patient.objects.filter(id__iexact=pk)
         form= PatientForm(request.POST)
         if form.is_valid():
             patient.FirstName= form.cleaned_data['FirstName']
@@ -341,6 +367,7 @@ def PatientUpdateView(request,pk):
             patient.FirstName= form.cleaned_data['FirstName']
             patient.FirstName= form.cleaned_data['FirstName']
             patient.save()
+
     return render(request, 'usermanagement/receptionist/patient_update_form.html')
 
 
@@ -1215,4 +1242,20 @@ def dnewmedecineprescription(request):
         'patientList':patientList,
         }   
     return render(request, 'usermanagement/dentist/dnewmedecineprescription.html', context=context)
+
+#-------------------------------------ADMIN-----------------------------------------#
+#-------------------------------------ADMIN-----------------------------------------#
+#-------------------------------------ADMIN-----------------------------------------#
+
+def admindashboard(request):
+    return render(request, 'usermanagement/admin/dashboard.html')
+
+def adduser(request):
+    return render(request, 'usermanagement/admin/ajouter-utilisateur.html')
+
+def viewuser(request):
+    return render(request, 'usermanagement/admin/information-medecin.html')
+
+def setprofile(request):
+    return render(request, 'usermanagement/admin/modifier-profil.html')
 
