@@ -44,8 +44,8 @@
             <div style="display: flex; width: 13%;">{{p.idPatient.Service}}</div>
             <div style="display: flex; width: 19%;">{{p.ExamDescription}}</div>
             <div style="display: flex; width: 15%;">{{p.Date}}</div>
-            <div style="display: flex; width: 20%;">heyyyy i no yoouuuu</div>
-            <div style="display: flex; width: 12%;"><button style="background: #18a10f;border: none;border-radius: 4px;width: 55%;">Edit</button></div>            
+            <div style="display: flex; width: 20%;">{{p.ExamResult}}</div>
+            <div style="display: flex; width: 12%;"><button style="background: #18a10f;border: none;border-radius: 4px;width: 55%;"><a href="{% url 'usermanagement:new' p.id %}">Edit</a></button></div>            
             
         </div>
         

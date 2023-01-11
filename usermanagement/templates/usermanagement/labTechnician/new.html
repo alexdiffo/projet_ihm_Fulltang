@@ -18,18 +18,18 @@
             <div style="width: 20%;"><h6>Exam_cost</h6></div>
             <div style="width:40% ;"><h6>Results</h6></div>
         </div>
-        <form method="post" action="">
+        <form method="post" action="">{% csrf_token %}
             <hr>
             <div>
                 <div style="display: flex; width: 100%">
                     <div style="display: flex; flex-direction: column; width: 100%;">
                         
                         <div style="display: flex; width:100%">
-                            <div style="width: 20%;"><li> diffo alex</li></div>
-                            <div style="width: 20%;"><li> dcvdv</li></div>
-                            <div style="width: 20%;"><li> 20</li></div>
+                            <div style="width: 20%;"><li> {{patient.FirstName}} {{patient.LastName}} </li></div>
+                            <div style="width: 20%;"><li> {{examen.ExamDescription}}</li></div>
+                            <div style="width: 20%;"><li> {{examen.Exam_cost}} </li></div>
                             <div style="width: 40%;">
-                                <textarea style="resize: none; width: 70%; height: 70px;"></textarea>
+                                <textarea style="resize: none; width: 70%; height: 70px;" name="ExamResult">{{examen.ExamResult}}</textarea>
                             </div>                                 
                             
                         </div>

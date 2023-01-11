@@ -780,8 +780,21 @@ def pharmacistviewpl(request):
 #---------------------------------------LAB_TECHNICIAN---------------------------------------------#
 #---------------------------------------LAB_TECHNICIAN---------------------------------------------#
 
-def new(request):
-    return render(request, 'usermanagement/labTechnician/new.html')
+def newlabresult(request,pk):
+    e = Examen.objects.filter(id__iexact = pk)[0]
+    p = Patient.objects.filter(id = e.idPatient_id)[0]
+    if request.method=='POST':
+        examen = Examen.objects.filter(id__iexact=pk)[0]
+        form = ExamForm(request.POST)
+        if form.is_valid():
+            examen.ExamResult= form.cleaned_data['ExamResult']
+            examen.save()
+        return examshistory2(request)
+    context={
+        'examen': e,
+        'patient':p,
+    }
+    return render(request, 'usermanagement/labTechnician/new.html', context)
 
 def labtechviewpl(request):
     def ndExam(idPatient):
@@ -996,6 +1009,7 @@ def examshistory(request):
         'examList':examList,
     }
     return render(request=request,template_name='usermanagement/cashier/examshistory.html',context=context)
+
 def examshistory2(request):
     name = ''
     if request.method == 'POST':
