@@ -126,6 +126,8 @@ urlpatterns = [
 #------------------------------------ADMIN-----------------------------------------------#
 #------------------------------------ADMIN-----------------------------------------------#
 
+    path('administration/exam/', exam, name='Exam'),
+    path('administration/list-exam/', examList, name='examList'),
     path('addPersonel/', addPersonel, name='addPersonel'),
     path('viewPersonel/<int:pk>/', viewPersonel, name='viewPersonel'),
     path('viewDoctorlist/', viewDoctorlist, name='viewDoctorlist'),

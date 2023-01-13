@@ -1263,6 +1263,12 @@ def dnewmedecineprescription(request):
 #-------------------------------------ADMIN-----------------------------------------#
 #-------------------------------------ADMIN-----------------------------------------#
 
+def exam (request):
+    return render(request, 'usermanagement/admin/add-exam.html')
+
+def examList (request):
+    return render(request, 'usermanagement/admin/list-exam.html')
+    
 def admindashboard(request):
     return render(request, 'usermanagement/admin/dashboard.html')
 

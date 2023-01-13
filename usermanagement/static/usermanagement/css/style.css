@@ -340,6 +340,11 @@ input[type="date"], select{
     font-size: 17px;
     font-weight: bold;
 }
+.add textarea{
+    resize: none;
+    width: 100%;
+    height: 90px;
+}
 .profil-entete{
     text-align: center;
     padding: 40px 0;
@@ -370,7 +375,7 @@ input[type="date"], select{
     border: solid 1px #b1d1d7;
 }
 .colonne-info h2{
-    flex-grow: 2;
+    width: 50%;
     font-size: 18px;
 }
 .colonne-info p{

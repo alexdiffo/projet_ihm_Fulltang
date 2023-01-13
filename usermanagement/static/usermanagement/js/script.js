@@ -27,7 +27,7 @@ form.forEach(i=>{i.addEventListener("submit",(e)=>{
 //defiler la navigation
 var item=document.querySelectorAll(".section")
 
-item.forEach(i=>{i.addEventListener("click",()=>{
+item.forEach(i=>{i.firstElementChild.addEventListener("click",()=>{
     i.lastElementChild.classList.toggle("height")
     i.firstElementChild.children[1].classList.toggle("rotate")
 })
