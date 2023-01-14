@@ -6,6 +6,14 @@ option.forEach(i=>{i.addEventListener("click", ()=>{
 })
 })
 
+//exam item
+var option=document.querySelectorAll('.colonne-info')
+
+option.forEach(i=>{i.addEventListener("click", ()=>{
+    i.lastElementChild.classList.toggle("visible")
+})
+})
+
 //confirmer la suppression
 var form=document.querySelectorAll(".selected-option form")
 
